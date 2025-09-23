@@ -1,0 +1,94 @@
+#1 - Escolher barbeiro
+#2 - Horarios disponivéis
+#3 - Tipo de cortes/ valor do corte
+#4 - Mensagem automaticá
+#5 - Faturamento de cada barbeiro
+#6 - Registro do clientes
+
+from dataclasses import dataclass
+
+@dataclass
+class RegistroCliente:
+    nome: str
+    email: str
+    celular: str
+    
+    registros_clientes = []
+    
+class ReservaCorte:
+    nome: str
+    corte: str
+    horario: str
+    email: str
+    profissional: str
+    
+    reservas_listas = []
+    
+    def adiciona_clientes():
+        nome = input("Qual o seu nome?: ")
+        email = input("Qual seu email? Ex: (joaozinha@gmail.com) ")
+        celular = input("Qual seu celular? Ex: (13 123456789) ")
+        novo_registro = RegistroCliente(nome, email, telefone)
+        registros_clientes.append(novo_registro)
+        print("Registro feito com sucesso")
+        
+    def verificar_acesso():
+        email_login = input("Digite o email: ")
+        telefone_login = input("Digite seu telefone: ")
+        
+        for registro in registros_clientes:
+            if registro.email == email_login:
+                if registro.telefone == telefone_login:
+                    print("Acesso concluido")
+                else:
+                    print("Email ou telefone incorreto")
+                    
+    def reserva_corte():
+        estilo_corte = input("Qual estilo de corte deseja: ")
+        profissional = input("Qual barbeiro deseja? ")
+        hora_reservar = input("Qual melhor horario para o corte? ")
+        print("Reserva feita com sucesso! ")
+        
+    def incluir_servico():
+        nome_servico = input("Informe o nome do serviço a adicionar: ")
+        detalhes = input("Descreva o serviço: ")
+        custo = input("Informe o custo do serviço: ")
+        print(f"O serviço {nome_servico} foi incluído com sucesso!")
+        
+    def suporte_cliente():
+        mensagem = input("Informe sua dúvida: ")
+        print = input("Um email foi enviado para você")
+        
+    def opcoes_menu():
+        print("\n--- ✂ Barbearia do Douglas ✂ ---")
+        print("1 - Registro de cliente")
+        print("2 - Acesso ao sistema")
+        print("3 - Reserva de corte")
+        print("4 - Incluir serviço")
+        print("5 - Suporte ao cliente")
+        print("6 - Encerrar")
+        return input("Selecione uma opção: ")
+
+    while True:
+        
+        selecao = opcoes_menu()
+        if selecao == "1":
+           adicionar_cliente()
+    
+        elif selecao == "2":
+             verificar_acesso()
+    
+        elif selecao == "3":
+             reservar_corte()
+        
+        elif selecao == "4":
+             incluir_servico()
+    
+        elif selecao == "5":
+             suporte_cliente()
+        
+        elif selecao == "6":
+             print("Encerrando o programa... Até breve")
+        break
+    else:
+        print("Opção não reconhecida")
